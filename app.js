@@ -5,14 +5,11 @@ const main = require("./views/main");
 
 const app = express();
 
-app.use(express.static(__dirname + "/public"));
-
-app.use("/", require("./views/main"));
+app.use(express.static(__dirname + "/"));
 
 app.get("/", (req, res) => {
   console.log("hello world!");
-  // res.send(main(""));
-  res.send("<h1>hi</h1>");
+  res.send(layout(''));
 });
 
 app.listen(3000, () => {
